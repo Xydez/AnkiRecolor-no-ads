@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+mypy = "*"
+aqt = "*"
+pyqt5-stubs = "*"
+types-simplejson = "*"
+types-flask-cors = "*"
+types-markdown = "*"
+types-send2trash = "*"
+types-beautifulsoup4 = "*"
+types-colorama = "*"
+types-decorator = "*"
+types-jsonschema = "*"
+types-protobuf = "*"
+types-pywin32 = "*"
+types-requests = "*"
+types-waitress = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"

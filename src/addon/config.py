@@ -23,34 +23,6 @@ def open_web(url: str) -> None:
     openLink(f"https://{url}")
 
 
-def header_layout(conf_window: ConfigWindow) -> QHBoxLayout:
-    icons_layout = QHBoxLayout()
-    icons_layout.addStretch()
-    images = [
-        ("AnKingSmall.png", (31, 31), "www.ankingmed.com"),
-        ("YouTube.png", (31, 31), "www.youtube.com/theanking"),
-        ("Patreon.png", (221, 31), "www.patreon.com/ankingmed"),
-        ("Instagram.png", (31, 31), "instagram.com/ankingmed"),
-        ("Facebook.png", (31, 31), "facebook.com/ankingmed"),
-    ]
-    for image in images:
-        icon = QIcon()
-        icon.addPixmap(
-            QPixmap(f"ReColor:{image[0]}"), QIcon.Mode.Normal, QIcon.State.Off
-        )
-        button = QToolButton(conf_window)
-        button.setIcon(icon)
-        button.setIconSize(QSize(*image[1]))
-        button.setMaximumSize(QSize(*image[1]))
-        button.setMinimumSize(QSize(*image[1]))
-        button.clicked.connect(lambda _, url=image[2]: open_web(url))
-        button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        button.setStyleSheet("QToolButton { border: none; }")
-        icons_layout.addWidget(button)
-    icons_layout.addStretch()
-    return icons_layout
-
-
 def on_save() -> None:
     conf.save()
     recolor_python()
@@ -61,7 +33,6 @@ def with_window(conf_window: ConfigWindow) -> None:
     conf_window.setWindowTitle("ReColor Settings")
     conf_window.setMinimumWidth(500)
     conf_window.execute_on_save(on_save)
-    conf_window.main_layout.insertLayout(0, header_layout(conf_window))
     conf_window.main_layout.insertSpacing(1, 10)
     conf_window.after_advanced_save_hook.append(lambda: maybe_migrate_config(conf))
 
