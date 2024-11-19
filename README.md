@@ -6,3 +6,5 @@ $ cd src/addon
 $ zip -r ReColor-no-ads.ankiaddon *
 ```
 Then use "install from file" in Anki.
+
+The settings have been moved and can be accessed through `Tools > ReColor settings`.

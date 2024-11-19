@@ -16,9 +16,6 @@ THEMES_DIR = Path(__file__).parent / "themes"
 
 conf = ConfigManager()
 
-QDir.addSearchPath("ReColor", str(Path(__file__).parent / "AnKing"))
-
-
 def open_web(url: str) -> None:
     openLink(f"https://{url}")
 
